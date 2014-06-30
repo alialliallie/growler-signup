@@ -1,20 +1,68 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles/hello.css" type="text/css" />
-	<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
-	<script src="js/api-example.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css" />
+	<script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+	<script src="bower_components/handlebars/handlebars.min.js" type="text/javascript"></script>
+	<script src="bower_components/ember/ember.min.js" type="text/javascript"></script>
+	<script src="js/app.js" type="text/javascript"></script>
 </head>
 <body>
-	<h1> Growler signup </h1>
 
-	<h2>beers</h2>
-	<div id="beers"></div>
-	
-	<h2>people</h2>
-	<div id="people"></div>
-	
-	<h2>votes</h2>
-	<div id="votes"></div>
+    <div class="container">
+        <div class="page-header">
+            <h1> Growler signup </h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Vote!</h2>
+                <form role="form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input id="name" class="form-control" name="name" placeholder="Enter name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="selection">Selection:</label>
+                        <select id="selection" class="form-control">
+                            <option value="beer_1">Beer 1</option>
+                            <option value="beer_2">Beer 2</option>
+                            <option value="beer_3">Beer 3</option>
+                            <option value="beer_4">Beer 4</option>
+                            <option value="beer_5">Beer 5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <p>Next growler date: <span>7/11/2014</span></p>
+                        <input id="voteDate" type="hidden" value="7/11/2014"/>
+                    </div>
+                    <button type="submit" class="btn btn-default">Vote</button>
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                <h2>Results</h2>
+                <ul>
+                    <li>Beer 1 <span>4 votes</span></li>
+                    <li>Beer 2 <span>3 votes</span></li>
+                    <li>Beer 3 <span>1 votes</span></li>
+                    <li>Beer 4 <span>1 votes</span></li>
+                    <li>Beer 5 <span>0 votes</span></li>
+                </ul>
+                <div id="votes"></div>
+            </div>
+
+        </div>
+        <div class="row">
+            <h2>People</h2>
+            <ul>
+                <li>Allison</li>
+                <li>Todd</li>
+                <li>Danielle</li>
+                <li>Wes</li>
+            </ul>
+        </div>
+    </div>
 
 </body>
 </html>
