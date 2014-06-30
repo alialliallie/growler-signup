@@ -3,19 +3,19 @@
 <head>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css" />
 	<script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="bower_components/handlebars/handlebars.min.js" type="text/javascript"></script>
-	<script src="bower_components/ember/ember.min.js" type="text/javascript"></script>
-	<script src="js/app.js" type="text/javascript"></script>
+	<script src="bower_components/ember/ember.js" type="text/javascript"></script>
 </head>
 <body>
-
+<script type="text/x-handlebars" data-template-name="growlers">
     <div class="container">
         <div class="page-header">
             <h1> Growler signup </h1>
         </div>
 
         <div class="row">
-            <div class="col-md-6">
+            <section class="col-md-6">
                 <h2>Vote!</h2>
                 <form role="form">
                     <div class="form-group">
@@ -38,31 +38,42 @@
                     </div>
                     <button type="submit" class="btn btn-default">Vote</button>
                 </form>
-            </div>
+            </section>
 
-            <div class="col-md-6">
-                <h2>Results</h2>
-                <ul>
-                    <li>Beer 1 <span>4 votes</span></li>
-                    <li>Beer 2 <span>3 votes</span></li>
-                    <li>Beer 3 <span>1 votes</span></li>
-                    <li>Beer 4 <span>1 votes</span></li>
-                    <li>Beer 5 <span>0 votes</span></li>
-                </ul>
-                <div id="votes"></div>
-            </div>
+            <section class="col-md-6">
+                <div class="btn-group">
+                {{#link-to "growlers.results" activeClass="active" class="btn btn-default"}}Results{{/link-to}}
+                {{#link-to "growlers.people" activeClass="active" class="btn btn-default"}}People{{/link-to}}
+                </div>
+                {{ outlet }}
+            </section>
 
         </div>
         <div class="row">
-            <h2>People</h2>
-            <ul>
-                <li>Allison</li>
-                <li>Todd</li>
-                <li>Danielle</li>
-                <li>Wes</li>
-            </ul>
+            <section class="col-md-6">
+            </section>
         </div>
     </div>
-
+</script>
+<script type="text/x-handlebars" data-template-name="growlers/results">
+<ul>
+    <li>Beer 1 <span>4 votes</span></li>
+    <li>Beer 2 <span>3 votes</span></li>
+    <li>Beer 3 <span>1 votes</span></li>
+    <li>Beer 4 <span>1 votes</span></li>
+    <li>Beer 5 <span>0 votes</span></li>
+</ul>
+</script>
+<script type="text/x-handlebars" data-template-name="growlers/people">
+<ul>
+    <li>Allison</li>
+    <li>Todd</li>
+    <li>Danielle</li>
+    <li>Wes</li>
+</ul>
+</script>
+    <script src="js/application.js"></script>
+    <!-- <script src="js/models.js"></script> -->
+    <script src="js/routes.js"></script>
 </body>
 </html>
