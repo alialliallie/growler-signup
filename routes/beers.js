@@ -28,7 +28,7 @@ var beer_store = [
 ];
 
 exports.index = function(req, res) {
-    res.send(beer_store);
+    res.send({ beers:beer_store });
 };
  
 exports.post = function(req, res) {

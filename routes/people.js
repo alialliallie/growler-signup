@@ -2,20 +2,28 @@
 var people_store = [
   {
     id: 0,
-    name: 'Joe Bob'
+    name: 'Allison'
   },
   {
     id: 1,
-    name: 'Carrie Stevens'
+    name: 'Danielle'
   },
   {
     id: 2,
-    name: 'John Doe'
+    name: 'Scott'
+  },
+  {
+    id: 3,
+    name: 'Todd'
+  },
+  {
+    id: 4,
+    name: 'Wes'
   }
 ];
 
 exports.index = function(req, res) {
-    res.send(people_store);
+    res.send({ persons: people_store });
 };
  
 exports.post = function(req, res) {

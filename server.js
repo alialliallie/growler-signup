@@ -22,7 +22,7 @@ app.get('/beers/:id', beers.get);
 app.put('/beers/:id', beers.put);
 app.delete('/beers/:id', beers.delete);
  
-app.get('/people', people.index);
+app.get('/persons', people.index);
 app.post('/people', people.post);
 app.get('/people/:id', people.get);
 app.put('/people/:id', people.put);
