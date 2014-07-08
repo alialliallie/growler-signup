@@ -18,27 +18,7 @@
         <div class="row">
             <section class="col-md-6">
                 <h2>Vote!</h2>
-                <form role="form">
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input id="name" class="form-control" name="name" placeholder="Enter name"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="selection">Selection:</label>
-                        <select id="selection" class="form-control">
-                            <option value="beer_1">Beer 1</option>
-                            <option value="beer_2">Beer 2</option>
-                            <option value="beer_3">Beer 3</option>
-                            <option value="beer_4">Beer 4</option>
-                            <option value="beer_5">Beer 5</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <p>Next growler date: <span>7/11/2014</span></p>
-                        <input id="voteDate" type="hidden" value="7/11/2014"/>
-                    </div>
-                    <button type="submit" class="btn btn-default">Vote</button>
-                </form>
+                {{vote-form options=beers}}
             </section>
 
             <section class="col-md-6">
@@ -73,8 +53,31 @@
   {{/each}}
 </ul>
 </script>
+<script type="text/x-handlebars" data-template-name="components/vote-form">
+<form role="form">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    {{input type="text" class="form-control" placeholder="Enter name"
+            value=voterName}}
+  </div>
+  <div class="form-group">
+    <label for="selection">Selection:</label>
+    {{view Ember.Select viewName="select"
+                        content=options
+                        optionLabelPath="content.name"
+                        optionValuePath="content.id"
+                        selection=selectedBeer
+                        class="form-control"}}
+  </div>
+  <div class="form-group">
+    <p>Next growler date: <span>{{nextFriday}}</span></p>
+  </div>
+  <button {{action 'vote'}} class="btn btn-default">Vote</button>
+</form>
+</script>
     <script src="js/application.js"></script>
     <script src="js/models.js"></script>
+    <script src="js/components.js"></script>
     <script src="js/routes.js"></script>
 </body>
 </html>

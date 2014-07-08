@@ -2,6 +2,14 @@ window.Growlers = Ember.Application.create();
 // Growlers.ApplicationAdapter = DS.RESTAdapter.extend({
 // });
 
+Growlers.GrowlersRoute = Ember.Route.extend({
+  model: function() {
+    return {
+      beers: this.store.find('beer')
+    };
+  }
+});
+
 Growlers.GrowlersResultsRoute = Ember.Route.extend({
   model: function() {
     return this.store.find('beer');
@@ -19,3 +27,4 @@ Growlers.GrowlersPeopleRoute = Ember.Route.extend({
     this.render('growlers/people', {controller: controller});
   }
 });
+

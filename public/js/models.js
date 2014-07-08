@@ -8,3 +8,9 @@ Growlers.Beer = DS.Model.extend({
 Growlers.Person = DS.Model.extend({
   name: DS.attr('string')
 });
+
+Growlers.Vote = DS.Model.extend({
+  beer: DS.belongsTo('beer'),
+  person: DS.belongsTo('person'),
+  date: DS.attr('string')
+});
